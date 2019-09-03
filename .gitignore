@@ -1,0 +1,6 @@
+/.idea
+/packages/**/babel.config.js
+/packages/**/dist/**
+node_modules
+test-reports/**
+yarn-error.log

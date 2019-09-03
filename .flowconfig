@@ -1,0 +1,16 @@
+[ignore]
+<PROJECT_ROOT>/.git
+<PROJECT_ROOT/dist
+
+[include]
+
+[untyped]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+
+[strict]

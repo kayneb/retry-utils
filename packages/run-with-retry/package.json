@@ -1,0 +1,39 @@
+{
+  "name": "run-with-retry",
+  "version": "0.0.1",
+  "description": "Utility functions for retrying failed promises and fetches",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "repository": "https://github.com/atlassian/retry-utils.git",
+  "author": "Kayne Barclay <kbarclay@atlassian.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "yarn build:cjs && yarn build:esm",
+    "build:cjs": "rm -rf dist/cjs && BABEL_ENV=production:cjs babel src --out-dir dist/cjs && yarn flow:copy dist/cjs",
+    "build:esm": "rm -rf dist/esm && BABEL_ENV=production:esm babel src --out-dir dist/esm && yarn flow:copy dist/esm",
+    "flow:copy": "flow-copy-source -i __tests__/* -i **/__tests__/* -i __mocks__/* -i **/__mocks__/* src"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^10.0.1",
+    "chance": "^1.0.18",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "flow-bin": "^0.96.0",
+    "jest": "^24.7.1",
+    "prettier": "^1.16.4"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "retry-utils-container",
+  "version": "0.0.1",
+  "description": "Utility functions for retrying failed promises and fetches",
+  "main": "index.js",
+  "repository": "https://github.com/atlassian/retry-utils.git",
+  "author": "Kayne Barclay <kbarclay@atlassian.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "bolt ws build",
+    "create:babel-symlinks": "echo \"Creating symlink to babel.config.js in all packages...\" && bolt ws exec --parallel -- rimraf ./babel.config.js && bolt ws exec --parallel -- ln -s ../../babel.config.js babel.config.js ",
+    "flow": "flow check",
+    "lint": "eslint packages/*/src/ test-utils",
+    "postinstall": "bolt create:babel-symlinks",
+    "prepublish": "bolt build",
+    "test": "jest packages/*/src/",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand packages/*/src/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^10.0.1",
+    "bolt": "^0.22.6",
+    "chance": "^1.0.18",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "flow-bin": "^0.96.0",
+    "flow-copy-source": "^2.0.3",
+    "flow-typed": "^2.5.1",
+    "jest": "^24.7.1",
+    "jest-fetch-mock": "^2.1.2",
+    "jest-junit": "^6.3.0",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3"
+  },
+  "bolt": {
+    "workspaces": [
+      "packages/*"
+    ]
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "clearMocks": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/__test__/setup.js"
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "test-reports"
+  }
+}

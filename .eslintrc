@@ -1,0 +1,42 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:flowtype/recommended",
+        "plugin:jest/recommended",
+        "prettier",
+        "prettier/react"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest/globals": true,
+        "node": true
+    },
+    "plugins": ["flowtype", "jest", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "camelcase": ["error", { "properties": "always" }],
+        "curly": ["error", "all"],
+        "jest/no-identical-title": 0,
+        "max-depth": ["error", 4],
+        "max-lines": [
+            "error",
+            {
+                "max": 300,
+                "skipBlankLines": true,
+                "skipComments": true
+            }
+        ],
+        "max-statements-per-line": ["error", { "max": 1 }],
+        "newline-before-return": "error",
+        "no-console": "error",
+        "no-else-return": "error",
+        "no-lonely-if": "error",
+        "no-var": "error",
+        "object-shorthand": ["error", "always"],
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-template": "error"
+    }
+}
